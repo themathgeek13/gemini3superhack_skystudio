@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>SkyStudio - AI Volumetric Sports Capture - Super Bowl LX 2026</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div id="app">
+        <canvas id="canvas"></canvas>
+
+        <!-- Stats Display -->
+        <div id="stats-display"></div>
+
+        <!-- Control Panel -->
+        <div id="control-panel">
+            <h2>☁️ SkyStudio</h2>
+            <p style="text-align: center; font-size: 11px; color: #FFD700; margin: -10px 0 10px 0;">AI Volumetric Capture • Super Bowl LX • 2026</p>
+
+            <div class="control-group">
+                <h3>View Mode</h3>
+                <button data-view="free" class="active">Free Camera (1)</button>
+                <button data-view="broadcast">Broadcast (2)</button>
+                <button data-view="drone">Drone POV (3)</button>
+                <button data-view="pointcloud">Point Cloud (4)</button>
+            </div>
+
+            <div class="control-group">
+                <h3>Simulation</h3>
+                <button id="play-pause">Pause (Space)</button>
+                <label>
+                    Time Speed: <span id="speed-value">1.0</span>x
+                    <input type="range" id="time-speed" min="0" max="2" step="0.1" value="1.0">
+                </label>
+            </div>
+
+            <div class="control-group">
+                <h3>Drones</h3>
+                <label>
+                    Drone Count: <span id="drone-count-value">12</span>
+                    <input type="range" id="drone-count" min="8" max="16" step="1" value="12">
+                </label>
+                <button id="deploy-drones">Deploy Drones (D)</button>
+            </div>
+
+            <div class="control-group">
+                <h3>Effects</h3>
+                <label>
+                    <input type="checkbox" id="show-drones" checked>
+                    Show Drones
+                </label>
+                <label>
+                    <input type="checkbox" id="show-trails" checked>
+                    Show Drone Trails
+                </label>
+                <label>
+                    <input type="checkbox" id="show-fov">
+                    Show FOV Frustums
+                </label>
+            </div>
+
+            <div class="control-group">
+                <h3>Advanced Features</h3>
+                <button id="multi-view-toggle">Multi-Drone View (M)</button>
+                <p style="font-size: 10px; color: #FFD700; margin-top: 5px;">See all 4 primary tracking drones in 2x2 grid!</p>
+            </div>
+
+            <div class="control-group">
+                <h3>Demo Recording</h3>
+                <button id="ai-view-button" style="background: #FF6B35; font-weight: bold;">🎬 AI View (Capture Moment)</button>
+                <p style="font-size: 10px; color: #FF6B35; margin-top: 5px;">Freezes time for NeRF reconstruction</p>
+            </div>
+
+            <div class="control-group">
+                <h3>Game Control</h3>
+                <button id="reset-sim" style="background: #E74C3C;">Reset Simulation</button>
+                <p style="font-size: 10px; color: #888; margin-top: 5px;">Restart from beginning</p>
+            </div>
+
+            <div class="control-group">
+                <h3>Instructions</h3>
+                <p>1-4: Views | Space: Pause | M: Multi-cam | D: Deploy | P: Hide Panel</p>
+                <p style="font-size: 10px; color: #888; margin-top: 5px;">AI View: ← → / ↑ ↓ Move | +/- Height | R: Rotate | Scroll: Zoom</p>
+                <p style="font-size: 10px; color: #888; margin-top: 5px;">SkyStudio • AI Volumetric Capture 🏆</p>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>
