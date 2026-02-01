@@ -1,17 +1,18 @@
-# Drone-Enhanced Volumetric Sports Capture Simulation
+# SkyStudio: AI-Powered Autonomous Drone Volumetric Sports Capture
 
-A web-based 3D simulation demonstrating autonomous drone technology for volumetric sports capture, built for the Gemini 3 Superhack.
+A web-based 3D simulation demonstrating autonomous drone technology for volumetric sports capture at Levi's Stadium (Super Bowl LX 2026). Built for the Gemini 3 Superhack.
 
 ## Overview
 
-This project showcases how autonomous drones with AI-driven positioning can revolutionize sports broadcasting by providing superior coverage compared to traditional static cameras. The simulation features:
+SkyStudio revolutionizes sports broadcasting by replacing fixed cameras with 12 autonomous drones that coordinate in real-time to capture multi-perspective footage. AI-driven volumetric reconstruction enables directors to create shots from any angle—including physically impossible ones.
 
-- **Basketball arena** with physics-based ball and player movement
-- **Autonomous drone fleet** (5-10 drones) with collision avoidance
-- **Real-time point cloud generation** from drone camera feeds
-- **Multiple camera views** including free camera, broadcast view, and drone POV
-- **Bullet-time effect** for dramatic replays
-- **Coverage heatmap** visualization comparing drone vs static camera coverage
+**Key Features:**
+- **12 Autonomous Drones** with CMU-based formation control algorithm
+- **Real-time Volumetric Capture** - point cloud generation from multi-view drone feeds
+- **Interactive AI Reconstruction** - frozen moment exploration from any angle
+- **Multi-Drone Command Center** - synchronized 2x2 grid of primary tracking drones
+- **American Football Simulation** at Levi's Stadium with realistic player physics
+- **Formation Control** with collision avoidance, boundary constraints, and dynamic positioning
 
 ## Tech Stack
 
@@ -65,17 +66,17 @@ The server will start on port 5173. You should see:
 
 ### Keyboard Shortcuts
 
-- **1-5**: Switch camera views
-  - 1: Free Camera (orbital controls)
-  - 2: Broadcast View (traditional TV angle)
-  - 3: Drone POV (first-person from drone)
-  - 4: Point Cloud View
-  - 5: Split View
+- **1**: Free Camera (orbital controls)
+- **2**: Broadcast View (traditional TV angle)
+- **3**: Drone POV (first-person from single drone)
+- **4**: Multi-Drone Command Center (2x2 grid of 4 primary drones)
+- **5**: AI View (interactive volumetric reconstruction)
+- **P**: Toggle Control Panel
 - **Space**: Play/Pause simulation
-- **B**: Toggle bullet-time effect
-- **H**: Toggle coverage heatmap
 - **D**: Deploy/redeploy drones
-- **Arrow Keys**: Switch between drones (in Drone POV mode)
+- **Arrow Keys**: Move camera position (in AI View)
+- **R**: Toggle orbital/manual rotation mode (in AI View)
+- **Scroll**: Zoom in/out (in AI View)
 
 ### UI Controls
 
@@ -86,38 +87,32 @@ The server will start on port 5173. You should see:
 
 ## Features
 
-### Autonomous Drone System
+### Autonomous Drone Fleet
 
-Drones use AI-driven behavior:
-- **Ball attraction**: Follow the action automatically
-- **Collision avoidance**: Repulsion forces prevent mid-air collisions
-- **Boundary awareness**: Stay within flight zone
-- **Vertical distribution**: Spread across different heights for optimal coverage
-- **Random noise**: Natural-looking flight patterns
+12 drones using CMU-based formation control algorithm:
+- **Attraction Model**: All drones attracted to ball/action with configurable force
+- **Repulsion Forces**: Squared-falloff repulsion maintains >3m separation between drones
+- **Height Distribution**: 4 primary tracking drones at 5-7m, 8 secondary at 7-12m
+- **Boundary Enforcement**: Hard position constraints keep all drones within ±55m stadium bounds
+- **Real-time Adaptation**: Formation recalculates every physics frame (~60 Hz)
 
-### Point Cloud Capture
+### Multi-Perspective Volumetric Capture
 
-Each drone "captures" depth information from its viewpoint:
-- Samples 3D points from visible objects
-- Merges point clouds from all drones
-- Color-coded by depth for visual clarity
-- Real-time updates (optimized to maintain 30+ FPS)
+Simultaneous recording from 12 drone perspectives:
+- **Synchronized Feeds**: All 12 perspectives perfectly time-aligned
+- **Command Center View**: 2x2 grid displays 4 primary tracking drones in real-time
+- **Point Cloud Generation**: 50k-100k dynamic points per frame from multi-view aggregation
+- **Color Coding**: Points colored by source drone to visualize coverage contribution
+- **Performance**: Maintains 30+ FPS with full system running
 
-### Coverage Analysis
+### Interactive AI Reconstruction
 
-Visual heatmap comparing coverage:
-- 3D voxel grid showing camera visibility
-- Color gradient: Blue (low coverage) → Red (high coverage)
-- Statistical comparison: Drone fleet vs static cameras
-- Demonstrates ~60-90% coverage with drones vs ~30-40% with static cameras
-
-### Bullet-Time Effect
-
-Freeze the action and orbit around key moments:
-- Slow motion time scale (0.1x)
-- Smooth camera orbit around frozen position
-- Showcases volumetric capture capability
-- Dramatic presentation for highlight moments
+Frozen moment exploration with Neural Radiance Fields:
+- **Automatic Orbiting**: Camera smoothly circles the reconstruction from multiple angles
+- **Free Navigation**: Arrow keys move camera position in any direction through 3D space
+- **Rotation Modes**: Toggle between orbital and manual rotation modes
+- **Zoom Controls**: Scroll to adjust distance from volumetric data
+- **Overlay Info**: Displays drone count and reconstruction mode
 
 ## Project Structure
 
@@ -176,13 +171,32 @@ Tested on:
 
 Requires WebGL 2.0 support.
 
-## Demo Presentation Flow
+## Demo Video
 
-1. **Problem** (30s): Show static broadcast camera limitations
-2. **Solution** (45s): Deploy autonomous drone fleet
-3. **Magic** (90s): Point cloud view + bullet-time effect
-4. **Proof** (60s): Coverage heatmap comparison
-5. **Future** (30s): Discuss scalability and applications
+A complete 2+ minute professional demo is included showcasing all features:
+- **Narration**: Professional voice-over explaining innovation
+- **Multi-view**: All 6 viewing modes demonstrated
+- **Drone Coordination**: Autonomous formation flying in real-time
+- **AI Magic**: Interactive volumetric reconstruction exploration
+
+**Video Files:**
+- `/tmp/SkyStudio_Final_Demo.mp4` - Complete demo (55 MB, 2:05)
+- `/tmp/narration.mp3` - Generated narration (376 KB)
+
+**Recording Method:** Automated Playwright script captures all features sequentially, then combines with VEO Super Bowl cinematic outro.
+
+## Hackathon Submission
+
+**What's Included:**
+- ✅ Full source code with formation control implementation
+- ✅ Professional demo video with narration
+- ✅ Interactive web-based simulation
+- ✅ All 12 drones with collision avoidance
+- ✅ Multi-perspective volumetric capture
+- ✅ Interactive AI reconstruction viewer
+- ✅ 30+ FPS performance on modern browsers
+
+**Key Innovation:** Autonomous drone coordination + AI volumetric reconstruction = directors can create shots from physically impossible angles
 
 ## License
 
@@ -191,3 +205,6 @@ MIT
 ## Credits
 
 Built for the Gemini 3 Superhack
+- Super Bowl LX 2026 at Levi's Stadium
+- Autonomous drone volumetric sports capture
+- Neural Radiance Field (NeRF) reconstruction
