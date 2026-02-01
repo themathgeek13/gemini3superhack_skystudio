@@ -59,6 +59,8 @@ The server will start on port 5173. You should see:
 - Players moving on the court
 - Stats display in top-left corner
 
+![Browser Screenshot](browser-screenshot.png)
+
 ## Controls
 
 ### Keyboard Shortcuts
