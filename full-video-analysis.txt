@@ -1,0 +1,42 @@
+Based on a detailed analysis of the 60-second demo, here is the technical breakdown of the Super Bowl Drone Volumetric Capture system.
+
+### **Temporal Analysis**
+*   **0-12s (Broadcast View):** The video starts with a black screen for several seconds. At **0:03**, it enters "Free Camera" mode. At **0:07**, the user clicks "Broadcast (2)". The camera performs a slow orbital pan around a group of capsules representing players in the center of a black-grid field.
+*   **12-25s (Free Camera & Deployment):** At **0:15**, the user switches back to "Free Camera". We see the drones (green trails) moving from the corners of the field toward the center huddle.
+*   **25-42s (Drone POV):** At **0:26**, the user clicks "Drone POV (3)". The screen immediately turns a solid, flat blue/grey color. **The view is broken**; no field, players, or drones are visible, though the UI remains active.
+*   **42-52s (Heatmap Visualization):** At **0:41**, the user toggles the heatmap. A massive, translucent blue volume/grid engulfs the entire field. The rendering is extremely heavy, causing a significant performance hit.
+*   **52-60s (Multi-Drone POV):** At **0:52**, the "Multi-Drone View (M)" is activated. Instead of showing 12 camera feeds, the screen displays a glitchy, repetitive grid of blue cubes/voxels that look like a "hall of mirrors" effect or a rendering buffer error.
+
+### **Drone Behavior**
+*   **Visibility:** Drones are **not visible as 3D models**. They are represented as simple green-glowing points with long, persistent green light trails.
+*   **Tracking:** The 12 drones stay tightly clustered directly above the huddle of players. They do not seem to follow individual routes but rather act as a singular swarm.
+*   **Distance:** The drones stay very close to the center of the field, never traveling more than ~15-20 yards from the "line of scrimmage."
+*   **Ball Tracking:** There is no visible ball in the demo; drones appear to be tracking the center-point of the player capsules.
+
+### **Camera Views**
+*   **Functionality:** The view-switching buttons on the UI work (the "Scene" text in the top-left updates), but the content behind them is mostly broken.
+*   **Broadcast View:** This works reasonably well, providing a cinematic rotation around the field.
+*   **Drone POV:** **Completely broken.** It renders a blank background color with no geometry.
+*   **Multi-View:** **Broken.** It shows a voxel-like blue grid instead of video feeds.
+
+### **Performance Issues**
+*   **FPS Range:** The demo starts at roughly **11-14 FPS** (barely playable).
+*   **Worst Drop:** When the **Heatmap** is toggled at **0:41**, the frame rate craters to **2-4 FPS**.
+*   **Stuttering:** There are frequent frame freezes, especially during camera transitions and when drones are moving rapidly.
+
+### **Visual Glitches**
+*   **Missing Objects:** In "Drone POV" and "Multi-View," the entire world (players, field, stadium) disappears.
+*   **Heatmap Render:** The heatmap does not look like a data visualization; it looks like a solid blue block of geometry that obscures the players.
+*   **Void:** The "stadium" is just a blue skybox with no stands or environment, giving a "floating in space" feeling.
+
+### **Coverage Metric**
+*   **Stat:** The "Coverage" stat stays locked at **0.0%** for the entire 60 seconds.
+*   **Hypothesis:** The ray-casting or collision logic intended to calculate what the drones "see" is likely not connected to the UI, or the drone cameras are not properly initialized to detect the field surface.
+
+### **Overall Assessment**
+*   **Professionalism Score: 3/10.** While the UI panel looks clean and professional, the actual 3D simulation is in a "broken" state with failing views and unoptimized shaders.
+*   **Top 3 Critical Issues:**
+    1.  **Broken Camera Feeds:** The "Drone POV" and "Multi-View" (the core selling points) do not render anything.
+    2.  **Performance Optimization:** A 2-4 FPS drop during heatmap usage is a "system crash" level event for a broadcast.
+    3.  **Static Logic:** The 0.0% coverage and lack of player movement suggest the simulation logic is disconnected.
+*   **Hackathon Ready?** Yes. This looks like a classic "last-minute" hackathon project where the UI was finished, but the backend 3D engine failed right before the presentation. It "looks" like a system, but it doesn't "work" like one yet.
