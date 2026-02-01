@@ -104,17 +104,25 @@ Freeze the action and orbit around key moments:
 
 ```
 gemini3superhack/
-├── src/
-│   ├── core/          # Scene, physics, time management
-│   ├── sports/        # Basketball arena, ball, players
-│   ├── drones/        # Drone fleet and AI
-│   ├── capture/       # Point cloud generation
-│   ├── cameras/       # Camera systems
-│   ├── visualization/ # Heatmap, trails, FOV
-│   ├── ui/            # Control panel and stats
-│   └── utils/         # Math and geometry helpers
+├── src/                    # Application source code
+│   ├── core/              # Scene, physics, time management
+│   ├── sports/            # Basketball arena, ball, players
+│   ├── drones/            # Drone fleet and AI
+│   ├── capture/           # Point cloud generation
+│   ├── cameras/           # Camera systems
+│   ├── visualization/     # Heatmap, trails, FOV
+│   ├── ui/                # Control panel and stats
+│   ├── utils/             # Math and geometry helpers
+│   ├── ai/                # Gemini API integration
+│   └── main.js            # Application entry point
+├── scripts/               # Testing, demo, and analysis scripts
+├── docs/                  # Documentation files
+├── analysis/              # Analysis reports and outputs
+├── demo-videos/           # Generated demo video files
+├── video-frames/          # Extracted video frames
 ├── index.html
 ├── styles.css
+├── vite.config.js
 └── package.json
 ```
 
@@ -164,4 +172,3 @@ MIT
 ## Credits
 
 Built for the Gemini 3 Superhack
-Inspired by Peripheral Labs' volumetric capture technology
