@@ -6,6 +6,12 @@ A web-based 3D simulation demonstrating autonomous drone technology for volumetr
 
 SkyStudio revolutionizes sports broadcasting by replacing fixed cameras with 12 autonomous drones that coordinate in real-time to capture multi-perspective footage. AI-driven volumetric reconstruction enables directors to create shots from any angle—including physically impossible ones.
 
+## 🎬 Watch the Demo
+
+[![SkyStudio Demo Video](https://img.youtube.com/vi/wdZ_YE8Yd5Y/maxresdefault.jpg)](https://youtu.be/wdZ_YE8Yd5Y)
+
+**[Full Demo Video on YouTube](https://youtu.be/wdZ_YE8Yd5Y)** - 2+ minutes showcasing autonomous drone coordination, multi-perspective capture, and interactive AI reconstruction.
+
 **Key Features:**
 - **12 Autonomous Drones** with CMU-based formation control algorithm
 - **Real-time Volumetric Capture** - point cloud generation from multi-view drone feeds
