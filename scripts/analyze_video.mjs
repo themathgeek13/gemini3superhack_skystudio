@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 
-const API_KEY = 'AIzaSyA6ku2x9helAoJyRJvXkIBvDhHjiaFGLC0';
+const API_KEY = process.env.GOOGLE_API_KEY;
 
 async function analyzeVideoWithGemini() {
   const videoPath = '/tmp/SkyStudio_Demo.mp4';

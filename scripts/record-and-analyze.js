@@ -92,10 +92,10 @@ async function recordAndAnalyzeOptimizedDemo() {
 }
 
 async function analyzeWithGemini(screenshotPaths) {
-    const apiKey = process.env.GOOGLE_API_KEY || 'AIzaSyA6ku2x9helAoJyRJvXkIBvDhHjiaFGLC0';
+    const apiKey = process.env.GOOGLE_API_KEY;
 
     if (!apiKey) {
-        console.error('❌ GOOGLE_API_KEY not set');
+        console.error('❌ GOOGLE_API_KEY environment variable not set. Please set it before running.');
         return;
     }
 

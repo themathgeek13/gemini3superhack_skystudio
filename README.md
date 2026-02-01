@@ -28,6 +28,23 @@ npm install
 
 **Note:** The project includes Vite configuration for WebAssembly support (required for Rapier3D physics engine). The `vite.config.js` file includes `vite-plugin-wasm` and `vite-plugin-top-level-await` plugins.
 
+### Environment Setup (Optional - Required for Gemini Features)
+
+To use AI-powered features and analysis scripts, set up your environment variables:
+
+1. Copy `.env.example` to `.env`:
+```bash
+cp .env.example .env
+```
+
+2. Add your Google Gemini API key (get one from [aistudio.google.com/apikey](https://aistudio.google.com/apikey)):
+```
+VITE_GEMINI_API_KEY=your_api_key_here
+GOOGLE_API_KEY=your_api_key_here
+```
+
+The main app runs fine without these for basic simulation. Only scripts in `scripts/` directory require the API keys.
+
 ## Running the Demo
 
 ```bash

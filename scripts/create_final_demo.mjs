@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import { execSync } from 'child_process';
 
-const API_KEY = 'AIzaSyA6ku2x9helAoJyRJvXkIBvDhHjiaFGLC0';
+const API_KEY = process.env.GOOGLE_API_KEY;
 
 async function generateNarrationAudio() {
   const narrationText = `Traditional sports broadcasting is limited to fixed camera angles. One perspective. One story. But what if you could create synthetic cameras that fly through the action from any angle? What if you could generate shots that were physically impossible?

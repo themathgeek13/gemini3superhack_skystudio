@@ -1,10 +1,17 @@
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
-const genAI = new GoogleGenerativeAI('AIzaSyA6ku2x9helAoJyRJvXkIBvDhHjiaFGLC0');
+const apiKey = process.env.GOOGLE_API_KEY;
+
+if (!apiKey) {
+    console.error('❌ GOOGLE_API_KEY environment variable not set. Please set it before running.');
+    process.exit(1);
+}
+
+const genAI = new GoogleGenerativeAI(apiKey);
 
 async function listModels() {
     try {
-        const response = await fetch('https://generativelanguage.googleapis.com/v1beta/models?key=AIzaSyA6ku2x9helAoJyRJvXkIBvDhHjiaFGLC0');
+        const response = await fetch('https://generativelanguage.googleapis.com/v1beta/models?key=' + (process.env.GOOGLE_API_KEY) + '');
         const data = await response.json();
 
         console.log('\n📋 Available Gemini Models:\n');

@@ -1,7 +1,7 @@
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import { readFileSync, readdirSync, writeFileSync } from 'fs';
 
-const genAI = new GoogleGenerativeAI('AIzaSyA6ku2x9helAoJyRJvXkIBvDhHjiaFGLC0');
+const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
 
 async function analyzeVideoFrames() {
     const model = genAI.getGenerativeModel({ model: 'gemini-3-flash-preview' });

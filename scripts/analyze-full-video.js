@@ -2,7 +2,7 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 import { readFileSync, writeFileSync } from 'fs';
 import { execSync } from 'child_process';
 
-const genAI = new GoogleGenerativeAI('AIzaSyA6ku2x9helAoJyRJvXkIBvDhHjiaFGLC0');
+const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
 
 async function analyzeFullVideo() {
     console.log('🎬 Analyzing full video with Gemini...\n');

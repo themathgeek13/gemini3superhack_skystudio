@@ -1,6 +1,11 @@
 import * as fs from 'fs';
 
-const API_KEY = 'AIzaSyA6ku2x9helAoJyRJvXkIBvDhHjiaFGLC0';
+const API_KEY = process.env.GOOGLE_API_KEY;
+
+if (!API_KEY) {
+  console.error('❌ GOOGLE_API_KEY environment variable is not set');
+  process.exit(1);
+}
 
 async function analyzeVideoWithGemini() {
   const videoPath = '/tmp/SkyStudio_Demo.mp4';
